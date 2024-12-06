@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos para Crachás</title>
+</head>
+<body>
+    <h1>Cadastro de Alunos para Crachás</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% for i in range(2) %} <!-- Para 2 alunos -->
+        <h3>Cadastro do Aluno {{ i+1 }}</h3>
+        
+        <!-- Nome -->
+        <label for="nome_{{ i+1 }}">Nome:</label>
+        <input type="text" id="nome_{{ i+1 }}" name="nome_{{ i+1 }}" required><br><br>
+        
+        <!-- Campus -->
+        <label for="campus_{{ i+1 }}">Campus:</label>
+        <input type="text" id="campus_{{ i+1 }}" name="campus_{{ i+1 }}" required><br><br>
+        
+        <!-- Matrícula -->
+        <label for="matricula_{{ i+1 }}">Matrícula:</label>
+        <input type="text" id="matricula_{{ i+1 }}" name="matricula_{{ i+1 }}" required><br><br>
+        
+        <!-- Modalidade -->
+        <label for="modalidade_{{ i+1 }}">Modalidade:</label>
+        <select id="modalidade_{{ i+1 }}" name="modalidade_{{ i+1 }}" required>
+            <option value="Futsal">Futsal</option>
+            <option value="Basquete">Basquete</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Vôlei">Vôlei</option>
+        </select><br><br>
+
+        <!-- RG -->
+        <label for="rg_{{ i+1 }}">RG:</label>
+        <input type="text" id="rg_{{ i+1 }}" name="rg_{{ i+1 }}" required><br><br>
+
+        <!-- Foto -->
+        <label for="foto_{{ i+1 }}">Foto:</label>
+        <input type="file" id="foto_{{ i+1 }}" name="foto_{{ i+1 }}" accept="image/*" required><br><br>
+        {% endfor %}
+        
+        <!-- Botão para gerar os crachás -->
+        <button type="submit">Gerar Crachás</button>
+    </form>
+</body>
+</html>
